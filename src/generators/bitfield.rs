@@ -46,7 +46,7 @@ impl iter::Iterator for Bits {
 
     fn next(&mut self) -> Option<Self::Item> {
         if self.count > 0 {
-            let bit = (self.value >> self.count) & 1 != 0;
+            let bit = (self.value >> (self.count-1)) & 1 != 0;
             self.count -= 1;
             Some(bit)
         } else {
