@@ -342,7 +342,7 @@ impl<'a> PDF417Encoder<'a> {
                             0 | 1 => push!(out, i, right, 28; mode = 2),
                             2 => (),
                             /* no switch if the char is also present in the punc table */
-                            3 if (1..=4).contains(&p) || (6..=9).contains(&p) => (),
+                            3 if (1..=4).contains(&p) || (6..=9).contains(&p) || p == 12 => (),
                             3 => push!(out, i, right, 29, 28; mode = 2),
                             _ => unreachable!("Unknown mode {mode}"),
                         }
