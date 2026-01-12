@@ -283,7 +283,7 @@ impl<'a> PDF417Encoder<'a> {
                     }
                     let digits = end - k;
 
-                    if digits <= 13 && mode != 4 {
+                    if digits <= 12 && mode != 4 {
                         match mode {
                             0 | 1 => push!(out, i, right, 28; mode = 2),
                             2 => (),
