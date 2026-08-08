@@ -275,10 +275,14 @@ impl<'a> PDF417Encoder<'a> {
                     match mode {
                         0 => (),
                         1 => {
-                            if k + 1 < s.len() && s[k + 1].is_ascii_lowercase() {
-                                push!(out, i, right, 27);
+                            if k + 2 < s.len()
+                                && (s[k + 1].is_ascii_uppercase() || s[k + 1] == b' ')
+                                && (s[k + 2].is_ascii_uppercase() || s[k + 2] == b' ')
+                            {
+                                push!(out, i, right, 28, 28; mode = 0);
                             } else {
-                                push!(out, i, right, 29, 29; mode = 0);
+                                push!(out, i, right, 27);
+                                // push!(out, i, right, 29, 29; mode = 0);
                             }
                         }
                         2 => push!(out, i, right, 28; mode = 0),
