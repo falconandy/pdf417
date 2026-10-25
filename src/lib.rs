@@ -88,10 +88,10 @@ pub const   END_PATTERN: Bitfield = Bitfield::new(0b111111101000101001, 18);
 /// is required, other parameters can be omitted in order.
 macro_rules! pdf417_width {
     ($cols:expr) => {
-        pdf417_width!($cols, 1);
+        pdf417_width!($cols, 1)
     };
     ($cols:expr, $scale_x:expr) => {
-        pdf417_width!($cols, $scale_x, false);
+        pdf417_width!($cols, $scale_x, false)
     };
     ($cols:expr, $scale_x:expr, $truncated:expr) => {
         if $truncated {
@@ -110,7 +110,7 @@ macro_rules! pdf417_width {
 /// parameters can be omitted in order.
 macro_rules! pdf417_height {
     ($rows:expr) => {
-        pdf417_height!($rows, 1);
+        pdf417_height!($rows, 1)
     };
     ($rows:expr, $scale_y:expr) => {
         $rows as usize * $scale_y as usize
@@ -123,7 +123,7 @@ macro_rules! pdf417_height {
 /// other parameters can be omitted in order.
 macro_rules! m_pdf417_width {
     ($cols:expr) => {
-        m_pdf417_width!($cols, 1);
+        m_pdf417_width!($cols, 1)
     };
     ($cols:expr, $scale_x:expr) => {
         (10 + $cols as usize * 17 + ($cols as usize / 3) * 10 + 10 + 1)
@@ -137,7 +137,7 @@ macro_rules! m_pdf417_width {
 /// parameters can be omitted in order. Note that the default Y scale is 2.
 macro_rules! m_pdf417_height {
     ($rows:expr) => {
-        m_pdf417_height!($rows, 2);
+        m_pdf417_height!($rows, 2)
     };
     ($rows:expr, $scale_y:expr) => {
         $rows as usize * $scale_y as usize
